@@ -1,7 +1,10 @@
 package models
 
+import "github.com/jinzhu/gorm"
 type Shop struct {
-    ID          string `json:"id"`
-    Name        string `json:"name"`
-    Description string `json:"description"`
+	gorm.Model
+	Name     string `gorm:"not null"`
+	Address  string `gorm:"not null"`
+	UserID   uint
+	IsActive bool `gorm:"not null;default:true"`
 }
